@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.7 on win32)" generated="2026-08-21T09:43:31.103533" rpa="false" schemaversion="5">
+<suite id="s1" name="Vehicle Insurance Quote" source="C:\Users\Aguinaldo Aparecido\Desktop\robot-technical-challenge-project\tests\vehicle_insurance_quote.robot">
+<kw name="Open Application" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-08-21T09:43:31.443997" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Aguinaldo Aparecido\\Desktop\\robot-technical-challenge-project\\tests\\results\\browser\\traces\\temp\\c96e32d7-6b10-4c27-af24-d8de69ad4658"}</msg>
+<msg time="2026-08-21T09:43:31.473619" level="INFO">Starting Browser process C:\Users\Aguinaldo Aparecido\Desktop\robot-technical-challenge-project\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:64302</msg>
+<msg time="2026-08-21T09:43:32.742796" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"tracesDir":"C:\\Users\\Aguinaldo Aparecido\\Desktop\\robot-technical-challenge-project\\tests\\results\\browser\\traces\\temp\\c96e32d7-6b10-4c27-af24-d8de69ad4658"}</msg>
+<arg>${BROWSER}</arg>
+<arg>${HEADLESS}</arg>
+<arg>slowMo=0.5s</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-08-21T09:43:31.442993" elapsed="1.300387"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-08-21T09:43:32.756842" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "locale": "en-GB",
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2026-08-21T09:43:32.778912" level="INFO">Successfully created context. </msg>
+<msg time="2026-08-21T09:43:32.779088" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'locale': 'en-GB', 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<arg>locale=en-GB</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-08-21T09:43:32.743896" elapsed="0.035374"/>
+</kw>
+<status status="PASS" start="2026-08-21T09:43:31.442138" elapsed="1.337831"/>
+</kw>
+<test id="s1-t1" name="Enviar cotação de Seguro de Veiculo com sucesso" line="25">
+<kw name="Dado que acesso a aplicação de seguro de veículos">
+<kw name="New Page" owner="Browser">
+<msg time="2026-08-21T09:43:35.602720" level="INFO">Successfully initialized new page object and opened url: http://sampleapp.tricentis.com/101/app.php</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-08-21T09:43:32.801243" elapsed="2.801959"/>
+</kw>
+<status status="PASS" start="2026-08-21T09:43:32.800352" elapsed="2.803175"/>
+</kw>
+<kw name="Quando preencho os dados do veículo" owner="vehicle_page">
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:35.605988" level="INFO">Selects the option(s) Honda by attribute SelectAttribute.label from element id=make.</msg>
+<arg>${MAKE}</arg>
+<arg>label</arg>
+<arg>${VEHICLE_MAKE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:35.605421" elapsed="0.571602"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:36.177913" level="INFO">Selects the option(s) Motorcycle by attribute SelectAttribute.label from element id=model.</msg>
+<arg>${MODEL}</arg>
+<arg>label</arg>
+<arg>${VEHICLE_MODEL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:36.177237" elapsed="0.527165"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:36.705169" level="INFO">Fills the text '1000' in the given field.</msg>
+<arg>${CYLINDER}</arg>
+<arg>${CYLINDER_CAPACITY}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:36.704585" elapsed="0.532245"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:37.238323" level="INFO">Fills the text '100' in the given field.</msg>
+<arg>${ENGINE}</arg>
+<arg>${ENGINE_PERFORMANCE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:37.237197" elapsed="0.531347"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:37.770457" level="INFO">Fills the text '01/08/2026' in the given field.</msg>
+<arg>${DATE}</arg>
+<arg>${MANUFACTURE_DATE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:37.769090" elapsed="0.533721"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:38.304798" level="INFO">Selects the option(s) 2 by attribute SelectAttribute.label from element id=numberofseats.</msg>
+<arg>${SEATS_INPUT}</arg>
+<arg>text</arg>
+<arg>${NUMBER_OF_SEATS}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:38.303340" elapsed="0.549564"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:38.854533" level="INFO">Selects the option(s) 1 by attribute SelectAttribute.label from element id=numberofseatsmotorcycle.</msg>
+<arg>${SEATS_INPUT2}</arg>
+<arg>text</arg>
+<arg>${NUMBER_OF_SEATS2}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:38.853283" elapsed="0.529740"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:39.384626" level="INFO">Selects the option(s) Petrol by attribute SelectAttribute.label from element id=fuel.</msg>
+<arg>${FUEL}</arg>
+<arg>text</arg>
+<arg>${FUEL_TYPE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:39.383269" elapsed="0.533119"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:39.918382" level="INFO">Fills the text '1000' in the given field.</msg>
+<arg>${PAYLOAD_KG}</arg>
+<arg>${PAYLOAD_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:39.916824" elapsed="0.520509"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:40.439218" level="INFO">Fills the text '2000' in the given field.</msg>
+<arg>${TOTAL_WEIGHT}</arg>
+<arg>${WEIGHT_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:40.437780" elapsed="0.531757"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:40.972061" level="INFO">Fills the text '50000' in the given field.</msg>
+<arg>${LIST_PRICE}</arg>
+<arg>${LIST_PRICE_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:40.970180" elapsed="0.532306"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:41.504692" level="INFO">Fills the text 'ABC1D34' in the given field.</msg>
+<arg>${PLATE}</arg>
+<arg>${LICENSE_PLATE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:41.503185" elapsed="0.533901"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:42.039163" level="INFO">Fills the text '10000' in the given field.</msg>
+<arg>${MILEAGE}</arg>
+<arg>${ANNUAL_MILEAGE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:42.037599" elapsed="0.530279"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:42.569796" level="INFO">Clicks the element 'id=nextenterinsurantdata'.</msg>
+<arg>${NEXT}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:42.568377" elapsed="0.578373"/>
+</kw>
+<doc>Preenche a aba "Enter Vehicle Data" e avança para a próxima aba.</doc>
+<status status="PASS" start="2026-08-21T09:43:35.604788" elapsed="7.542383"/>
+</kw>
+<kw name="E preencho os dados do segurado" owner="insurant_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:43.150982" level="INFO">Fills the text 'Aguinaldo' in the given field.</msg>
+<arg>${FIRST_NAME}</arg>
+<arg>${FIRST_NAME_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:43.149390" elapsed="0.523363"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:43.674563" level="INFO">Fills the text 'Test' in the given field.</msg>
+<arg>${LAST_NAME}</arg>
+<arg>${LAST_NAME_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:43.673206" elapsed="0.529655"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:44.204732" level="INFO">Fills the text '01/01/1990' in the given field.</msg>
+<arg>${BIRTH_DATE}</arg>
+<arg>${BIRTH_DATE_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:44.203321" elapsed="0.527648"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>${GENDER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:44.731359" elapsed="0.554652"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:45.287914" level="INFO">Fills the text 'Test Street' in the given field.</msg>
+<arg>${STREET}</arg>
+<arg>${STREET_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:45.286516" elapsed="0.525286"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:45.813839" level="INFO">Selects the option(s) Brazil by attribute SelectAttribute.label from element id=country.</msg>
+<arg>${COUNTRY}</arg>
+<arg>label</arg>
+<arg>${COUNTRY_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:45.812282" elapsed="0.556204"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:46.369235" level="INFO">Fills the text '01001000' in the given field.</msg>
+<arg>${ZIP}</arg>
+<arg>${ZIP_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:46.368676" elapsed="0.517521"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:46.888145" level="INFO">Fills the text 'Osasco' in the given field.</msg>
+<arg>${CITY}</arg>
+<arg>${CITY_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:46.886656" elapsed="0.532513"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:47.421127" level="INFO">Selects the option(s) Selfemployed by attribute SelectAttribute.label from element id=occupation.</msg>
+<arg>${OCCUPATION}</arg>
+<arg>label</arg>
+<arg>${OCCUPATION_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:47.419625" elapsed="0.545902"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:47.966537" level="INFO">Clicks the element 'text=Cliff Diving'.</msg>
+<arg>${HOBBIES}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:47.965755" elapsed="0.537121"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:48.504758" level="INFO">Clicks the element 'id=nextenterproductdata'.</msg>
+<arg>${NEXT_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:48.503438" elapsed="0.566608"/>
+</kw>
+<doc>Preenche a aba "Enter Insurant Data" e avança para a próxima aba.</doc>
+<status status="PASS" start="2026-08-21T09:43:43.148441" elapsed="5.921935"/>
+</kw>
+<kw name="E preencho os dados do produto" owner="product_page">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-08-21T09:43:49.073241" level="INFO">${hoje} = 2026-08-21 09:43:49.073</msg>
+<var>${hoje}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-08-21T09:43:49.072538" elapsed="0.000795"/>
+</kw>
+<kw name="Add Time To Date" owner="DateTime">
+<msg time="2026-08-21T09:43:49.080451" level="INFO">${data_inicio} = 10/20/2026</msg>
+<var>${data_inicio}</var>
+<arg>${hoje}</arg>
+<arg>60 days</arg>
+<arg>result_format=%m/%d/%Y</arg>
+<doc>Adds time to date and returns the resulting date.</doc>
+<status status="PASS" start="2026-08-21T09:43:49.073667" elapsed="0.006883"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:49.082252" level="INFO">Fills the text '10/20/2026' in the given field.</msg>
+<arg>${START_DATE}</arg>
+<arg>${data_inicio}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:49.080909" elapsed="0.521058"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:49.603584" level="INFO">Selects the option(s) 3.000.000,00 by attribute SelectAttribute.label from element id=insurancesum.</msg>
+<arg>${INSURANCE_SUM}</arg>
+<arg>label</arg>
+<arg>${INSURANCE_SUM_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:49.602315" elapsed="0.524303"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:50.127556" level="INFO">Selects the option(s) Bonus 1 by attribute SelectAttribute.label from element id=meritrating.</msg>
+<arg>${MERIT_RATING}</arg>
+<arg>label</arg>
+<arg>${MERIT_RATING_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:50.126826" elapsed="0.517998"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:50.645742" level="INFO">Selects the option(s) Full Coverage by attribute SelectAttribute.label from element id=damageinsurance.</msg>
+<arg>${DAMAGE}</arg>
+<arg>label</arg>
+<arg>${DAMAGE_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:50.645045" elapsed="0.520767"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:51.167139" level="INFO">Clicks the element 'text=Euro Protection'.</msg>
+<arg>${OPTIONALS}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:51.166063" elapsed="0.535199"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-08-21T09:43:51.703159" level="INFO">Selects the option(s) Yes by attribute SelectAttribute.label from element id=courtesycar.</msg>
+<arg>${COURTESY}</arg>
+<arg>label</arg>
+<arg>${COURTESY_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:51.701725" elapsed="0.527721"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:52.230103" level="INFO">Clicks the element 'id=nextselectpriceoption'.</msg>
+<arg>${NEXT_BUTTON_2}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:52.229615" elapsed="0.577257"/>
+</kw>
+<doc>Preenche a aba "Enter Product Data" e avança para a próxima aba.
+A data de início da apólice é calculada dinamicamente (hoje + 60 dias),
+para garantir que o teste sempre envie uma data futura válida.</doc>
+<status status="PASS" start="2026-08-21T09:43:49.071539" elapsed="3.735612"/>
+</kw>
+<kw name="E seleciono a opção de preço desejada" owner="price_page">
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:52.810117" level="INFO">Clicks the element '*css=label &gt;&gt; css=[value=Silver]'.</msg>
+<arg>${PRICE_OPTION_SILVER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:52.808953" elapsed="0.540482"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:53.350866" level="INFO">Clicks the element 'id=nextsendquote'.</msg>
+<arg>${BUTTON_NEXT_3}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:53.349856" elapsed="0.649344"/>
+</kw>
+<doc>Seleciona a opção de preço "Silver" e avança para a próxima aba.</doc>
+<status status="PASS" start="2026-08-21T09:43:52.808077" elapsed="1.191237"/>
+</kw>
+<kw name="E envio a solicitação de cotação" owner="quote_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:54.000778" level="INFO">Fills the text 'test@test.com' in the given field.</msg>
+<arg>${EMAIL}</arg>
+<arg>${EMAIL_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:54.000291" elapsed="0.518483"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:54.520454" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<arg>${PHONE}</arg>
+<arg>${PHONE_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:54.519185" elapsed="0.522953"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:55.043132" level="INFO">Fills the text 'robot_test_user' in the given field.</msg>
+<arg>${USERNAME}</arg>
+<arg>${USERNAME_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:55.042363" elapsed="0.526008"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:55.569156" level="INFO">Fills the text 'Robot@123456' in the given field.</msg>
+<arg>${PASSWORD}</arg>
+<arg>${PASSWORD_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:55.568564" elapsed="0.533984"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:56.104356" level="INFO">Fills the text 'Robot@123456' in the given field.</msg>
+<arg>${CONFIRM}</arg>
+<arg>${PASSWORD_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:56.102984" elapsed="0.532396"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-08-21T09:43:56.637157" level="INFO">Fills the text 'Automated test' in the given field.</msg>
+<arg>${COMMENTS}</arg>
+<arg>${COMMENTS_VALUE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:56.635815" elapsed="0.532997"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-21T09:43:57.170490" level="INFO">Clicks the element 'id=sendemail'.</msg>
+<arg>${SEND}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-21T09:43:57.169222" elapsed="0.549017"/>
+</kw>
+<doc>Preenche a aba "Send Quote" e clica em "Send".</doc>
+<status status="PASS" start="2026-08-21T09:43:53.999863" elapsed="3.718510"/>
+</kw>
+<kw name="Então a mensagem de sucesso deve ser exibida" owner="quote_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-08-21T09:44:05.792364" level="INFO">Waited for Element with selector text=Sending e-mail success! at state visible</msg>
+<arg>${SUCCESS_MESSAGE}</arg>
+<arg>visible</arg>
+<arg>timeout=20s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-08-21T09:43:57.719341" elapsed="8.073244"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-21T09:44:07.793613" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-21T09:44:05.792863" elapsed="2.000879"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2026-08-21T09:44:07.857092" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2026-08-21T09:44:07.793929" elapsed="0.063326"/>
+</kw>
+<doc>Aguarda a exibição da mensagem "Sending e-mail success!" na tela,
+confirmando que o envio da cotação foi concluído com sucesso,
+e captura uma screenshot como evidência do resultado do teste.</doc>
+<status status="PASS" start="2026-08-21T09:43:57.718920" elapsed="10.138437"/>
+</kw>
+<msg time="2026-08-21T09:44:07.865507" level="INFO">Closing current active page.</msg>
+<msg time="2026-08-21T09:44:07.878888" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Preenche todo o wizard de cotação e confirma a mensagem de sucesso do envio.</doc>
+<tag>cotacao</tag>
+<tag>seguro</tag>
+<status status="PASS" start="2026-08-21T09:43:32.780379" elapsed="35.077290"/>
+</test>
+<kw name="Close Application" type="TEARDOWN">
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-08-21T09:44:08.059931" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-21T09:44:07.881843" elapsed="0.178267"/>
+</kw>
+<status status="PASS" start="2026-08-21T09:44:07.880743" elapsed="0.179468"/>
+</kw>
+<doc>Fluxo completo de cotação de seguro de veículo no Tricentis Application.
+Escrito com sintaxe Gherkin (Given/When/Then/And), suportado nativamente
+pelo Robot Framework (BuiltIn ignora esses prefixos ao casar keywords),
+com Page Objects representando cada aba do formulário.
+Este arquivo é o ponto de entrada da execução (a "feature").</doc>
+<status status="PASS" start="2026-08-21T09:43:31.104938" elapsed="36.955312"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cotacao</stat>
+<stat pass="1" fail="0" skip="0">seguro</stat>
+</tag>
+<suite>
+<stat name="Vehicle Insurance Quote" id="s1" pass="1" fail="0" skip="0">Vehicle Insurance Quote</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

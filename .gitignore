@@ -1,0 +1,15 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node / Playwright (Browser Library)
+node_modules/
+
+# Resultados de execução do Robot Framework
+*.png
+
+# IDE
+.vscode/
+.idea/
