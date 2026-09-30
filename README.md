@@ -18,7 +18,7 @@ Automação E2E do fluxo de cotação de seguro de veículo do
 - Robot Framework + Browser Library (Playwright)
 - Python 3.12
 - Padrão Page Object com arquivos `.resource`
-- - Cenário descrito em estilo Gherkin (BDD)
+- Cenário descrito em estilo Gherkin (BDD)
 - GitHub Actions (execução headless, relatórios como artefatos e publicação no GitHub Pages)
 
 ## Estrutura do projeto
