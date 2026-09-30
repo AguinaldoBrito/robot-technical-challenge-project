@@ -9,12 +9,17 @@ Automação E2E do fluxo de cotação de seguro de veículo do
 
 📊 **Relatório da última execução:** https://aguinaldobrito.github.io/robot-technical-challenge-project/
 
+## Evidência
+
+![Relatório Robot Framework](docs/report.png)
+
 ## Tecnologias
 
 - Robot Framework + Browser Library (Playwright)
 - Python 3.12
 - Padrão Page Object com arquivos `.resource`
-- GitHub Actions (execução headless, relatórios como artefatos)
+- - Cenário descrito em estilo Gherkin (BDD)
+- GitHub Actions (execução headless, relatórios como artefatos e publicação no GitHub Pages)
 
 ## Estrutura do projeto
 
@@ -22,14 +27,16 @@ Automação E2E do fluxo de cotação de seguro de veículo do
 robot-technical-challenge-project/
 ├── .github/workflows/
 │   └── robot-tests.yml                     # pipeline CI/CD
+├── docs/
+│   └── report.png                          # printscreen do relatório (usado no README)
 ├── features/
-│   └── vehicle_insurance_quote.feature		# cenário em Gherkin (documentação da feature em estilo Gherkin, apenas para fins de visualização do cenário.)
+│   └── vehicle_insurance_quote.feature     # cenário em Gherkin (documentação)
 ├── pages/                                  # Page Objects, um por aba do formulário
-│       ├── insurant_page.resource
-│       ├── price_page.resource
-│       ├── product_page.resource
-│       ├── quote_page.resource
-│       └── vehicle_page.resource
+│   ├── insurant_page.resource
+│   ├── price_page.resource
+│   ├── product_page.resource
+│   ├── quote_page.resource
+│   └── vehicle_page.resource
 ├── resources/
 │   ├── variables.resource                  # todas as variáveis da automação
 ├── tests/
@@ -39,7 +46,7 @@ robot-technical-challenge-project/
 ├── README.md                               # documentação do projeto
 └── requirements.txt                        # dependências Python do projeto
 ```
-*os restantes são arquivos temporários gerados pelo próprio robot
+*os restantes são arquivos temporários gerados pelo próprio robot*
 
 Cada aba do wizard (Vehicle Data, Insurant Data, Product Data, Price Option,
 Send Quote) virou um `.resource` próprio, com suas variáveis de localizadores
@@ -59,6 +66,7 @@ python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 rfbrowser init                    # instala os navegadores do Playwright
+rfbrowser init chromium           # instala o navegador chromium para melhor performance
 ```
 
 ## Execução
@@ -104,7 +112,3 @@ git branch -M main
 git remote add origin <URL_DO_SEU_REPOSITORIO>
 git push -u origin main
 ```
-
-## Evidência
-
-![Relatório Robot Framework](docs/report.png)
