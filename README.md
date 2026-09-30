@@ -1,3 +1,5 @@
+![Robot Framework Tests](https://github.com/AguinaldoBrito/robot-technical-challenge-project/actions/workflows/robot-tests.yml/badge.svg)
+
 # Desafio Técnico - Robot Framework (com Browser Library)
 
 Automação do fluxo de cotação de seguro de veículo do
