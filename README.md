@@ -7,28 +7,28 @@ Automação do fluxo de cotação de seguro de veículo do
 **Robot Framework**, **Browser Library** (baseada em Playwright) e o padrão
 **Page Objects**.
 
-## Sobre a decisão técnica "Robot + Cucumber"
+Automação E2E do fluxo de cotação de seguro de veículo do
+[Tricentis Sample App](http://sampleapp.tricentis.com/101/app.php), usando
+**Robot Framework**, **Browser Library** (baseada em Playwright) e o padrão
+**Page Objects**, com pipeline de **CI/CD no GitHub Actions**.
 
-O desafio pede um projeto em "robot e cucumber". Robot Framework e Cucumber são
-duas stacks tecnicamente distintas (Cucumber interpreta arquivos `.feature` em
-Gherkin e os liga a step definitions em Java/Ruby/JS; ele não roda Robot por
-baixo dos panos). Em vez de forçar uma integração artificial entre as duas
-ferramentas, optei pelo suporte **nativo** do Robot Framework à sintaxe Gherkin:
-o Robot reconhece e ignora os prefixos `Given/When/Then/And/But` na hora de
-casar com as keywords, então o teste em `features/insurance_quote.robot` já é
-escrito e lido como uma feature BDD — e é também o ponto de entrada real da
-execução (não uma camada decorativa por cima de outra ferramenta).
+📊 **Relatório da última execução:** https://aguinaldobrito.github.io/robot-technical-challenge-project/
 
-Essa abordagem é reconhecida oficialmente pela documentação do Robot Framework
-(ver [Testcase Styles → BDD](https://docs.robotframework.org/docs/testcase_styles/bdd)),
-evita duas stacks concorrentes e mantém o projeto simples de rodar e revisar.
+## Tecnologias
+
+- Robot Framework + Browser Library (Playwright)
+- Python 3.12
+- Padrão Page Object com arquivos `.resource`
+- GitHub Actions (execução headless, relatórios como artefatos)
 
 ## Estrutura do projeto
 
 ```
 robot-technical-challenge-project/
+├── .github/workflows/
+│   └── robot-tests.yml                     # pipeline CI/CD
 ├── features/
-│   └── vehicle_insurance_quote.feature		# ponto de entrada (feature em estilo Gherkin, apenas para fins de visualização do cenário.)
+│   └── vehicle_insurance_quote.feature		# cenário em Gherkin (documentação da feature em estilo Gherkin, apenas para fins de visualização do cenário.)
 ├── pages/                                  # Page Objects, um por aba do formulário
 │       ├── insurant_page.resource
 │       ├── price_page.resource
@@ -48,7 +48,7 @@ robot-technical-challenge-project/
 
 Cada aba do wizard (Vehicle Data, Insurant Data, Product Data, Price Option,
 Send Quote) virou um `.resource` próprio, com suas variáveis de localizadores
-e suas keywords — isso é o padrão Page Object aplicado ao Robot Framework.
+e suas keywords - isso é o padrão Page Object aplicado ao Robot Framework.
 
 ## Pré-requisitos
 
@@ -68,13 +68,26 @@ rfbrowser init                    # instala os navegadores do Playwright
 
 ## Execução
 
+Headless (padrão):
+
 ```bash
-robot -d tests/results tests/vehicle_insurance_quote.robot
+robot -d results tests/
 ```
 
-Os relatórios (`log.html`, `report.html`, `output.xml`) são gerados na pasta
-`results/`. Para acompanhar visualmente a execução, defina `${HEADLESS}` como
-`true` ou `false` em `tests/vehicle_insurance_quote.robot`.
+Com navegador visível e câmera mais lenta, para acompanhar o teste:
+
+```bash
+robot -v HEADLESS:False -v SLOWMO:0.5s -d results tests/
+```
+
+Os relatórios (`log.html`, `report.html`, `output.xml`) são gerados em `results/`.
+
+## CI/CD
+
+O workflow `.github/workflows/robot-tests.yml` roda a cada push e pull request
+na `main` (e também manualmente). Ele instala as dependências, executa os testes
+em modo headless, publica os relatórios como artefatos e faz o deploy do
+relatório no GitHub Pages.
 
 ## Fluxo automatizado
 
@@ -96,3 +109,7 @@ git branch -M main
 git remote add origin <URL_DO_SEU_REPOSITORIO>
 git push -u origin main
 ```
+
+## Evidência
+
+![Relatório Robot Framework](docs/report.png)
