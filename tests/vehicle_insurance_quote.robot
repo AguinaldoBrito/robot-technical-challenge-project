@@ -37,12 +37,13 @@ Enviar cotação de Seguro de Veiculo com sucesso
 ${BASE_URL}    http://sampleapp.tricentis.com/101/app.php
 ${BROWSER}     chromium
 ${HEADLESS}    false
-
+${HEADLESS}    ${True}
+${SLOWMO}      0s
 
 *** Keywords ***
 
 Open Application
-    New Browser    ${BROWSER}    ${HEADLESS}    slowMo=0.5s
+    New Browser    ${BROWSER}    headless=${HEADLESS}    slowMo=${SLOWMO}
     New Context    locale=en-GB    
 
 Close Application
