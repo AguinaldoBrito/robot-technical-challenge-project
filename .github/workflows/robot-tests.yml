@@ -15,12 +15,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install dependencies
         run: |
@@ -28,9 +29,14 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Browser Library
-        run: |
-          rfbrowser init
+        run: rfbrowser init chromium
 
       - name: Run Robot Framework tests
-        run: |
-          robot -d results tests/
+        run: robot -v HEADLESS:True -d results tests/
+
+      - name: Upload Robot reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-reports
+          path: results/
