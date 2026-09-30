@@ -2,11 +2,6 @@
 
 # Desafio Técnico - Robot Framework (com Browser Library)
 
-Automação do fluxo de cotação de seguro de veículo do
-[Tricentis Sample App](http://sampleapp.tricentis.com/101/app.php), usando
-**Robot Framework**, **Browser Library** (baseada em Playwright) e o padrão
-**Page Objects**.
-
 Automação E2E do fluxo de cotação de seguro de veículo do
 [Tricentis Sample App](http://sampleapp.tricentis.com/101/app.php), usando
 **Robot Framework**, **Browser Library** (baseada em Playwright) e o padrão
